@@ -22,9 +22,9 @@ public class BaseClass {
 	
 	
 	
-	@Parameters({"browserName","url"})
+	@Parameters({"browserName","URL"})
 	@BeforeMethod
-	public void browserSelect(String browserName, String url  )
+	public void BeforeMethod(String browserName, String url)
 	{
 		
 	if(browserName.equals("edge")) {
@@ -34,7 +34,7 @@ public class BaseClass {
 		WebDriverManager.chromedriver().setup();
 		driver=new ChromeDriver();
 	}
-	
+	driver.get(url);
 	driver.manage().window().maximize();
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	}
