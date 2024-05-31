@@ -7,7 +7,7 @@
     <classes>
       <class name="testcase.SamplePageTest">
         <methods>
-          <include name="samplePage" invocation-numbers="0"/>
+          <include name="samplePage"/>
           <include name="BeforeMethod"/>
           <include name="setData"/>
           <include name="AfterMethod"/>

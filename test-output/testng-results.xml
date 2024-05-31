@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-05-30T18:33:44 IST" name="Suite" finished-at="2024-05-30T18:34:02 IST" duration-ms="18218">
+  <suite started-at="2024-05-31T20:18:46 IST" name="Suite" finished-at="2024-05-31T20:19:06 IST" duration-ms="19530">
     <groups>
     </groups>
-    <test started-at="2024-05-30T18:33:44 IST" name="SamplePage" finished-at="2024-05-30T18:34:02 IST" duration-ms="18218">
+    <test started-at="2024-05-31T20:18:46 IST" name="SamplePage" finished-at="2024-05-31T20:19:06 IST" duration-ms="19530">
       <class name="testcase.SamplePageTest">
-        <test-method is-config="true" signature="setData()[pri:0, instance:testcase.SamplePageTest@38467116]" started-at="2024-05-30T18:33:44 IST" name="setData" finished-at="2024-05-30T18:33:44 IST" duration-ms="23" status="PASS">
+        <test-method is-config="true" signature="setData()[pri:0, instance:testcase.SamplePageTest@38467116]" started-at="2024-05-31T20:18:46 IST" name="setData" finished-at="2024-05-31T20:18:47 IST" duration-ms="23" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setData -->
-        <test-method is-config="true" signature="BeforeMethod(java.lang.String,java.lang.String)[pri:0, instance:testcase.SamplePageTest@38467116]" started-at="2024-05-30T18:33:47 IST" name="BeforeMethod" finished-at="2024-05-30T18:34:00 IST" duration-ms="13405" status="PASS">
+        <test-method is-config="true" signature="BeforeMethod(java.lang.String,java.lang.String)[pri:0, instance:testcase.SamplePageTest@38467116]" started-at="2024-05-31T20:18:49 IST" name="BeforeMethod" finished-at="2024-05-31T20:19:05 IST" duration-ms="15207" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,7 +27,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeMethod -->
-        <test-method signature="samplePage(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:testcase.SamplePageTest@38467116]" started-at="2024-05-30T18:34:00 IST" name="samplePage" data-provider="SamplePage" finished-at="2024-05-30T18:34:02 IST" duration-ms="1368" status="PASS">
+        <test-method signature="samplePage(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:testcase.SamplePageTest@38467116]" started-at="2024-05-31T20:19:05 IST" name="samplePage" data-provider="SamplePage" finished-at="2024-05-31T20:19:06 IST" duration-ms="1463" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -44,11 +44,21 @@
                 <![CDATA[mt.com]]>
               </value>
             </param>
+            <param index="3">
+              <value>
+                <![CDATA[3-5]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[ Functional Testing, Automation Testing, Manual Testing]]>
+              </value>
+            </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- samplePage -->
-        <test-method is-config="true" signature="AfterMethod()[pri:0, instance:testcase.SamplePageTest@38467116]" started-at="2024-05-30T18:34:02 IST" name="AfterMethod" finished-at="2024-05-30T18:34:02 IST" duration-ms="598" status="PASS">
+        <test-method is-config="true" signature="AfterMethod()[pri:0, instance:testcase.SamplePageTest@38467116]" started-at="2024-05-31T20:19:06 IST" name="AfterMethod" finished-at="2024-05-31T20:19:06 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AfterMethod -->

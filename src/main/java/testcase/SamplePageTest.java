@@ -17,11 +17,13 @@ public class SamplePageTest extends BaseClass {
 	}
 	
 	@Test(dataProvider="SamplePage")
-	public void samplePage(String name, String email, String website) {
+	public void samplePage(String name, String email, String website, String experience, String expertise) {
 		
 		new SamplePage(driver)
 //		.enterName(name)
 		.enterEmail(email)
-		.enterWebsite(website);
+		.enterWebsite(website)
+		.selectExperience(experience)
+		.selectExpertise(expertise);
 	}
 }

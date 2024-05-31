@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.Select;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.SamplePage;
 
-public class SamplePageCode {
+public class SPJavaCode {
 	
 	public static void main(String[] args) {
 		
@@ -44,6 +44,35 @@ public class SamplePageCode {
 			for (WebElement expddlOptions : ddlOptions) {
 			System.out.println(expddlOptions.getText());
 				}
+			experienceDDL.selectByVisibleText("3-5");
+		//	experienceDDL.deselectByVisibleText("3-5");
+			experienceDDL.selectByVisibleText("7-10");
+	//To print the selected option	
+			
+			WebElement selectedOption=experienceDDL.getFirstSelectedOption();
+			System.out.println("Selected Options: "+selectedOption.getText());
+//Checkbox			
+			WebElement expertiseCheckbox01 = driver.findElement(By.xpath("//label[contains(text(),'Functional Testing')]"));
+			System.out.println("checkbox01: "+expertiseCheckbox01.getText());
+			String checkbox1=expertiseCheckbox01.getText();
+
+			WebElement expertiseCheckbox02 = driver.findElement(By.xpath("//label[contains(text(),'Automation Testing')]"));
+			System.out.println("checkbox02: "+expertiseCheckbox02.getText());
+			String checkbox2=expertiseCheckbox02.getText();
+			
+			WebElement expertiseCheckbox03 = driver.findElement(By.xpath("//label[contains(text(),'Manual Testing')]"));
+			System.out.println("checkbox03: "+expertiseCheckbox03.getText());
+			String checkbox3=expertiseCheckbox03.getText();
+			
+			expertiseCheckbox01.click();
+			
+			if(checkbox1.equals(checkbox3)) {
+				
+			}
+			
+			
+			
+			
 	/*	
 		@CacheLookup
 		@FindBy(how=How.ID, using="g2599-email")WebElement elementEmail;
@@ -79,7 +108,7 @@ public class SamplePageCode {
 	
 
 		
-	driver.close();	
+	// driver.close();	
 	}
 	
 	

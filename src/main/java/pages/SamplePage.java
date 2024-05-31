@@ -39,7 +39,7 @@ public class SamplePage extends BaseClass {
 		
 		WebElement elementWebsite = driver.findElement(By.id("g2599-website"));		
 		elementWebsite.sendKeys(website);
-		System.out.println(website+": Email entered succesfully");
+		System.out.println(website+": Website entered succesfully");
 		return this;
 	}
 	
@@ -49,17 +49,43 @@ public class SamplePage extends BaseClass {
 		Select experienceDDL = new Select(elementExperienxeDDL);
 		
 		List<WebElement> ddlOptions=experienceDDL.getOptions();
-		
-		for (WebElement expddlOptions : ddlOptions) {
-			System.out.println(expddlOptions);
-		}
-		
-		
+		System.out.println("Total DDL Options: "+ddlOptions.size());
+			for (WebElement expddlOptions : ddlOptions) {
+			System.out.println(expddlOptions.getText());
+				}
+			experienceDDL.selectByVisibleText(experience);
+		//	experienceDDL.deselectByVisibleText("3-5");
+			
+	//To print the selected option		
+			WebElement selectedOption=experienceDDL.getFirstSelectedOption();
+			System.out.println("Selected Options: "+selectedOption.getText());
 		
 		return this;
 	}
 
-	public SamplePage selectExpertise() {
+	public SamplePage selectExpertise(String expertise) {
+		
+		WebElement expertiseCheckbox01 = driver.findElement(By.xpath("//label[contains(text(),'Functional Testing')]"));
+		System.out.println("checkbox01: "+expertiseCheckbox01.getText());
+		String checkbox1=expertiseCheckbox01.getText();
+
+		WebElement expertiseCheckbox02 = driver.findElement(By.xpath("//label[contains(text(),'Automation Testing')]"));
+		System.out.println("checkbox02: "+expertiseCheckbox02.getText());
+		String checkbox2=expertiseCheckbox02.getText();
+		
+		WebElement expertiseCheckbox03 = driver.findElement(By.xpath("//label[contains(text(),'Manual Testing')]"));
+		System.out.println("checkbox03: "+expertiseCheckbox03.getText());
+		String checkbox3=expertiseCheckbox03.getText();
+		
+		
+		
+		if(checkbox1.equals(expertise)) {
+			expertiseCheckbox01.click();
+			
+		}
+ 
+		
+		
 	
 	return this;
 	}
