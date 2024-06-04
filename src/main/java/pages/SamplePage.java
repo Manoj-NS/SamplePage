@@ -3,6 +3,7 @@ package pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.CacheLookup;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import base.BaseClass;
 
@@ -39,7 +41,7 @@ public class SamplePage extends BaseClass {
 		
 		WebElement elementWebsite = driver.findElement(By.id("g2599-website"));		
 		elementWebsite.sendKeys(website);
-		System.out.println(website+": Website entered succesfully");
+		System.out.println("Selected Website: "+website);
 		return this;
 	}
 	
@@ -48,23 +50,57 @@ public class SamplePage extends BaseClass {
 		WebElement elementExperienxeDDL = driver.findElement(By.id("g2599-experienceinyears"));
 		Select experienceDDL = new Select(elementExperienxeDDL);
 		
+		
 		List<WebElement> ddlOptions=experienceDDL.getOptions();
 		System.out.println("Total DDL Options: "+ddlOptions.size());
 			for (WebElement expddlOptions : ddlOptions) {
-			System.out.println(expddlOptions.getText());
+			System.out.println("Dropdown Options: "+expddlOptions.getText());
 				}
 			experienceDDL.selectByVisibleText(experience);
 		//	experienceDDL.deselectByVisibleText("3-5");
 			
 	//To print the selected option		
 			WebElement selectedOption=experienceDDL.getFirstSelectedOption();
-			System.out.println("Selected Options: "+selectedOption.getText());
-		
+			System.out.println("Selected Dropdown: "+selectedOption.getText());
+			
+			// Scroll by 1000 pixels down the page
+	        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500)");		
+			
 		return this;
 	}
 
+			public SamplePage verifyexpCount(String checkboxCount, String checkboxOption) {
+				
+					List<WebElement> checkboxOptions=driver.findElements(By.xpath("//input[@type='checkbox']"));
+					
+					int actualOption = checkboxOptions.size();
+					int expectedOption=Integer.parseInt(checkboxCount);
+					
+					if (actualOption==expectedOption) {
+						System.out.println("Exp Checkbox Count: "+checkboxCount);
+					}
+					
+				//	Assert.assertEquals(expectedOption, actualOption);	
+//To validate the checkbox options
+					
+					for (WebElement expertiseOptions : checkboxOptions) {				
+					String actualCheckboxOptions = expertiseOptions.getAttribute("value");
+							
+		//To get the value from excel		
+					String [] options= checkboxOption.split(",\\s*");
+					
+					for (String expectedcheckboxOptions: options) {						
+							
+					if(actualCheckboxOptions.equals(expectedcheckboxOptions.trim())) {
+					System.out.println("Expertise Checkbox Option: "+actualCheckboxOptions);	
+						}				
+					}
+				}
+			return this;
+			}
+			
 	public SamplePage selectExpertise(String expertise) {
-		
+/*		
 		WebElement expertiseCheckbox01 = driver.findElement(By.xpath("//label[contains(text(),'Functional Testing')]"));
 		System.out.println("checkbox01: "+expertiseCheckbox01.getText());
 		String checkbox1=expertiseCheckbox01.getText();
@@ -76,123 +112,73 @@ public class SamplePage extends BaseClass {
 		WebElement expertiseCheckbox03 = driver.findElement(By.xpath("//label[contains(text(),'Manual Testing')]"));
 		System.out.println("checkbox03: "+expertiseCheckbox03.getText());
 		String checkbox3=expertiseCheckbox03.getText();
+*/	
+		List<WebElement> checkboxOptions=driver.findElements(By.xpath("//input[@type='checkbox']"));
 		
-		
-		
-		if(checkbox1.equals(expertise)) {
-			expertiseCheckbox01.click();
+			for (WebElement expertiseOptions : checkboxOptions) {
 			
+		//	System.out.println("Expertise Checkbox Option: "+expertiseOptions.getAttribute("value"));			
+			String expCheckboxOptions = expertiseOptions.getAttribute("value");
+					
+//To get the value from excel		
+			String [] options= expertise.split(",\\s*");
+			
+			for (String optionSelected: options) {						
+					
+			if(expCheckboxOptions.equals(optionSelected.trim())) {
+				expertiseOptions.click();
+				System.out.println("Selected Checkbox: "+optionSelected);	
+			}	
+/*
+		if (checkbox2.equals(optionSelected.trim())) {
+			expertiseCheckbox02.click();}
+		
+		if (checkbox3.equals(optionSelected.trim())){
+			expertiseCheckbox03.click();}
+*/		
+		
+			}
 		}
- 
-		
-		
-	
 	return this;
 	}
 
-	public SamplePage selectEducation() {
-	
-	return this;
-	}
-/*	
-	
-	
-/*	
-	@CacheLookup
-	@FindBy(how=How.ID, using="g2599-name") WebElement elementName;
-	@CacheLookup
-	@FindBy(how=How.ID, using="g2599-email")WebElement elementEmail;
-	@CacheLookup
-	@FindBy(how=How.ID, using="g2599-website") WebElement elementWebsite;
-	@CacheLookup
-	@FindBy(how=How.ID, using="g2599-experienceinyears") WebElement elementExperience;
-	@CacheLookup
-	@FindBy(how=How.XPATH, using="//label[normalize-space()='Functional Testing']") WebElement elementExpertise1;
-	@CacheLookup
-	@FindBy(how=How.XPATH, using="//label[normalize-space()='Automation Testing']") WebElement elementExpertise2;
-	@CacheLookup
-	@FindBy(how=How.XPATH, using="//label[normalize-space()='Manual Testing']") WebElement elementExpertise3;
-	@CacheLookup
-	@FindBy(how=How.XPATH, using="//label[normalize-space()='Graduate']") WebElement elementEducation1;
-	@CacheLookup
-	@FindBy(how=How.XPATH, using="//label[normalize-space()='Post Graduate']") WebElement elementEducation2;
-	@CacheLookup
-	@FindBy(how=How.XPATH, using="//label[normalize-space()='Other']") WebElement elementEducation3;
-	@CacheLookup
-	@FindBy(how=How.ID, using="contact-form-comment-g2599-comment") WebElement elementComment;
-	@CacheLookup
-	@FindBy(how=How.CLASS_NAME, using="pushbutton-wide") WebElement elementSubmit;
-
-	public SamplePage(RemoteWebDriver commonDriver) {
-		this.driver=commonDriver;
-		PageFactory.initElements(driver, commonDriver);
+	public SamplePage verifyEducationRadiobutton(String educationCount, String educationOptions) {
 		
-	}
-	
-	public SamplePage enterName(String name) {
-		elementName.sendKeys(name);
-		System.out.println(name+": Name entered succesfully");
+	List<WebElement> radioOptions = driver.findElements(By.xpath("//input[@type='radio']"));	
 		
-		return this;
-	}
-	
-	public SamplePage enterEmail(String email) {
-		elementEmail.sendKeys(email);
-		System.out.println(email+": Email entered succesfully");
+		int actualRadioLen=radioOptions.size();
+		int expectedRadioLen=Integer.parseInt(educationCount);
 		
-		return this;
-	}
-	
-	public SamplePage selectExperience(String ddl) {
-		elementExperience.click();
-		Select selectOption=new Select (elementExperience);
-		selectOption.selectByVisibleText(ddl);
-		
-		String optionSelected=selectOption.getFirstSelectedOption().getText();
-		System.out.println("Selected Experience: "+optionSelected);
-		return this;
-	}
-	
-	public SamplePage selectExpertise1() {
-		
-		return this;
-	}
-	
-	public SamplePage selectExpertise2() {
-		
-		return this;
-	}
-	
-	public SamplePage selectExpertise3() {
-		
-		return this;
-	}
-	
-	public SamplePage selectEducation1() {
-		
-		return this;
-	}
-	
-	public SamplePage selectEducation2() {
-		
-		return this;
-	}
-	
-	public SamplePage selectEducation3() {
-		
-		return this;
-	}
-	
-	public SamplePage enterComment() {
-		
-		return this;
-	}
-	
-	public SamplePage clickSubmit() {
-		
-		return this;
+		if(actualRadioLen==expectedRadioLen) {
+		System.out.println("Total Radio Button: "+expectedRadioLen);	
 		}
 		
-		*/
+//TO verify options		
+		
+		for(WebElement eduOptions: radioOptions){
+			
+			String actualRadiobutton=eduOptions.getAttribute("value");
+			String[] expectedRadiobutton=educationOptions.split(",\\s*");
+			
+			if(actualRadiobutton.equals(expectedRadiobutton.)) {
+			
+			System.out.println("Radio Button Options: "+eduOptions1);
+			}
+			
+			String radioOptions1="Other";
+			
+			if(eduOptions1.equals(radioOptions1)) {
+				eduOptions.click();
+			
+			System.out.println("Selected Checkbox: "+eduOptions1);	
+				
+			}		
+		}
 	
+		
+		return this;
+	
+	
+	}
+
 }

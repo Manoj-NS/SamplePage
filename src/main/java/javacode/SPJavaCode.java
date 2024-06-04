@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -18,7 +19,7 @@ import pages.SamplePage;
 
 public class SPJavaCode {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		WebDriverManager.edgedriver().setup();
 		EdgeDriver driver = new EdgeDriver();
@@ -51,7 +52,33 @@ public class SPJavaCode {
 			
 			WebElement selectedOption=experienceDDL.getFirstSelectedOption();
 			System.out.println("Selected Options: "+selectedOption.getText());
-//Checkbox			
+			
+//Checkbox	
+			
+			List<WebElement> checkboxOptions=driver.findElements(By.xpath("//input[@type='checkbox']"));
+			
+			int expertiseOptionsCount = checkboxOptions.size();
+			System.out.println("Expertise Checkbox Count: "+expertiseOptionsCount);
+			
+			
+			for (WebElement expertiseOptions : checkboxOptions) {
+				
+				System.out.println("Expertise Checkbox Option: "+expertiseOptions.getAttribute("value"));
+				
+				String expCheckboxOptions = expertiseOptions.getAttribute("value");
+				
+				
+				String actualCheckbox = "Automation Testing";
+				
+				if (expCheckboxOptions.equals(actualCheckbox)) {
+					
+					expertiseOptions.click();
+					System.out.println("Selected Checkbox: "+expCheckboxOptions);
+				}
+				
+			}
+			
+			
 			WebElement expertiseCheckbox01 = driver.findElement(By.xpath("//label[contains(text(),'Functional Testing')]"));
 			System.out.println("checkbox01: "+expertiseCheckbox01.getText());
 			String checkbox1=expertiseCheckbox01.getText();
@@ -71,6 +98,43 @@ public class SPJavaCode {
 			}
 			
 			
+			
+			
+			
+// To Select Radio Button
+			
+			////div[@class='grunion-field-wrap grunion-field-checkbox-multiple-wrap']
+			
+		((JavascriptExecutor)driver).executeScript("window.scrollBy(0,500)");
+			
+		List<WebElement> radioOptions = driver.findElements(By.xpath("//input[@type='radio']"));	
+		
+		int radioLen=radioOptions.size();
+		System.out.println("Total Check Box: "+radioLen);	
+		
+		System.out.println("Checkbox Options: ");
+		for(WebElement eduOptions: radioOptions) 
+		
+		{
+//		System.out.println(eduOptions.getAttribute("value"));
+			String eduOptions1=eduOptions.getAttribute("value");
+			System.out.println(eduOptions1);
+			
+				String radioOptions1="Other";
+			
+			if(eduOptions1.equals(radioOptions1)) {
+				eduOptions.click();
+				
+				
+			System.out.println("Selected Checkbox: "+eduOptions1);	
+				
+			}
+		
+		}
+	
+		
+			
+		
 			
 			
 	/*	
@@ -102,15 +166,15 @@ public class SPJavaCode {
 			
 				elementEmail.sendKeys(email);
 			System.out.println(email+": Email entered succesfully");
-			
+	}		
 	*/	
 		
 	
 
 		
 	// driver.close();	
-	}
 	
+	}
 	
 
 }
