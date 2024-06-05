@@ -3,15 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testcase.SamplePageTest">
+      <class name="javacode.ExtentReport">
         <methods>
-          <include name="samplePage"/>
-          <include name="setData"/>
-          <include name="browserSelect"/>
-          <include name="AfterMethod"/>
-          <include name="browserSetup"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="launchGoogle"/>
         </methods>
-      </class> <!-- testcase.SamplePageTest -->
+      </class> <!-- javacode.ExtentReport -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

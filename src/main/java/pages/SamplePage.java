@@ -50,7 +50,6 @@ public class SamplePage extends BaseClass {
 		WebElement elementExperienxeDDL = driver.findElement(By.id("g2599-experienceinyears"));
 		Select experienceDDL = new Select(elementExperienxeDDL);
 		
-		
 		List<WebElement> ddlOptions=experienceDDL.getOptions();
 		System.out.println("Total DDL Options: "+ddlOptions.size());
 			for (WebElement expddlOptions : ddlOptions) {
@@ -72,14 +71,19 @@ public class SamplePage extends BaseClass {
 			public SamplePage verifyexpCount(String checkboxCount, String checkboxOption) {
 				
 					List<WebElement> checkboxOptions=driver.findElements(By.xpath("//input[@type='checkbox']"));
-					
+				try {
+				
 					int actualOption = checkboxOptions.size();
 					int expectedOption=Integer.parseInt(checkboxCount);
 					
 					if (actualOption==expectedOption) {
-						System.out.println("Exp Checkbox Count: "+checkboxCount);
-					}
+						System.out.println("Exp Checkbox Count: "+checkboxCount);}
 					
+				} catch (Exception e) {
+					// TODO: handle exception
+					System.out.println("No Data Entered");
+				}
+				
 				//	Assert.assertEquals(expectedOption, actualOption);	
 //To validate the checkbox options
 					
@@ -146,12 +150,16 @@ public class SamplePage extends BaseClass {
 		
 	List<WebElement> radioOptions = driver.findElements(By.xpath("//input[@type='radio']"));	
 		
-		int actualRadioLen=radioOptions.size();
+		try {int actualRadioLen=radioOptions.size();
 		int expectedRadioLen=Integer.parseInt(educationCount);
 		
 		if(actualRadioLen==expectedRadioLen) {
-		System.out.println("Total Radio Button: "+expectedRadioLen);	
+		System.out.println("Total Radio Button: "+expectedRadioLen);}	
+		
+		} catch (Exception e){
+			System.out.println("No data entered");
 		}
+		
 		
 //TO verify options		
 		
@@ -160,25 +168,53 @@ public class SamplePage extends BaseClass {
 			String actualRadiobutton=eduOptions.getAttribute("value");
 			String[] expectedRadiobutton=educationOptions.split(",\\s*");
 			
-			if(actualRadiobutton.equals(expectedRadiobutton.)) {
+			for(String radioButtons: expectedRadiobutton) {
 			
-			System.out.println("Radio Button Options: "+eduOptions1);
+			if(actualRadiobutton.equals(radioButtons.trim())) {
+			
+			System.out.println("Radio Button Options: "+actualRadiobutton);	}
 			}
-			
-			String radioOptions1="Other";
-			
-			if(eduOptions1.equals(radioOptions1)) {
-				eduOptions.click();
-			
-			System.out.println("Selected Checkbox: "+eduOptions1);	
-				
-			}		
 		}
-	
 		
+		
+	return this;
+	
+		}
+		
+		public SamplePage selectEducation(String education) {
+			
+			List<WebElement> radioOptions = driver.findElements(By.xpath("//input[@type='radio']"));
+			for(WebElement eduOptions: radioOptions){
+				
+				String radiobuttonOptions=eduOptions.getAttribute("value");
+				String[] expectedOption=education.split(",\\s*");
+				
+				for(String radioButtons: expectedOption) {
+				
+				if(radiobuttonOptions.equals(radioButtons.trim())) {
+			
+					eduOptions.click();
+			
+				System.out.println("Selected radioButton: "+radiobuttonOptions);	}
+				
+				}	
+			}	
 		return this;
-	
-	
-	}
-
+		}
+		
+		public SamplePage enterComments(String comments) {
+			
+			WebElement commentelement = driver.findElement(By.id("contact-form-comment-g2599-comment"));
+			commentelement.sendKeys(comments);
+			
+			int commentCount=comments.length();
+			
+			if(commentCount<250) {
+				System.out.println("Comments entered sucessfully");
+			
+			}else {
+				System.out.println("Only 250 characters are allowed");
+			}
+			return this;
+		}
 }

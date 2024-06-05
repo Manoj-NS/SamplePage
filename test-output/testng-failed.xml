@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="SamplePage(failed)">
-    <parameter name="browserName" value="edge"/>
-    <parameter name="URL" value="https://www.globalsqa.com/samplepagetest/"/>
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testcase.SamplePageTest">
+      <class name="javacode.ExtentReport">
         <methods>
-          <include name="samplePage"/>
-          <include name="BeforeMethod"/>
-          <include name="setData"/>
-          <include name="AfterMethod"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="launchGoogle"/>
         </methods>
-      </class> <!-- testcase.SamplePageTest -->
+      </class> <!-- javacode.ExtentReport -->
     </classes>
-  </test> <!-- SamplePage(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

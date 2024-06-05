@@ -19,16 +19,18 @@ public class SamplePageTest extends BaseClass {
 	@Test(dataProvider="SamplePage")
 	public void samplePage(String name, String email, String website, String experience, String checkboxCount, 
 			String checkboxOption, String expertise, String educationCount, String educationOptions, 
-			String education) {
+			String education, String comments) {
 		
 		new SamplePage(driver)
-//		.enterName(name)
-//		.enterEmail(email)
-//		.enterWebsite(website)
-//		.selectExperience(experience)
+		.enterName(name)
+		.enterEmail(email)
+		.enterWebsite(website)
+		.selectExperience(experience)
 		.verifyexpCount(checkboxCount, checkboxOption)
 		.selectExpertise(expertise)
-		.verifyEducationRadiobutton(educationCount, educationOptions);
+		.verifyEducationRadiobutton(educationCount, educationOptions)
+		.selectEducation(education)
+		.enterComments(comments);
 		
 		
 	}
