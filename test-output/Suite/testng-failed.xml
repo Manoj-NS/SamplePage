@@ -7,11 +7,11 @@
     <classes>
       <class name="testcase.SamplePageTest">
         <methods>
-          <include name="stopReport"/>
-          <include name="samplePage"/>
+          <include name="setupReport"/>
+          <include name="samplePage" invocation-numbers="0"/>
           <include name="BeforeMethod"/>
+          <include name="teardownReport"/>
           <include name="setData"/>
-          <include name="testcaseDetails"/>
           <include name="AfterMethod"/>
         </methods>
       </class> <!-- testcase.SamplePageTest -->

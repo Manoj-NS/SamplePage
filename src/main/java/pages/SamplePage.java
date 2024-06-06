@@ -13,18 +13,26 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+
 import base.BaseClass;
 
 public class SamplePage extends BaseClass {
 	
-	public SamplePage(RemoteWebDriver commonDriver ) {
+	public SamplePage(RemoteWebDriver commonDriver, ExtentTest test ) {
 			this.driver=commonDriver;
+			this.test=test;
 	}
 	
+	
 	public SamplePage enterName(String name) {
+		
 	WebElement elementName = driver.findElement(By.id("g2599-name"));
 	elementName.sendKeys(name);
+	test.log(Status.PASS, "Name entered succesfully");
 	System.out.println(name+": Name entered succesfully");
+	
 	
 	return this;
 	}
@@ -32,6 +40,7 @@ public class SamplePage extends BaseClass {
 	public SamplePage enterEmail(String email) {
 	WebElement elementEmail = driver.findElement(By.id("g2599-email"));
 	elementEmail.sendKeys(email);
+	test.log(Status.PASS, "Email entered succesfully");
 	System.out.println(email+": Email entered succesfully");
 	
 	return this;
@@ -42,6 +51,7 @@ public class SamplePage extends BaseClass {
 		WebElement elementWebsite = driver.findElement(By.id("g2599-website"));		
 		elementWebsite.sendKeys(website);
 		System.out.println("Selected Website: "+website);
+		test.log(Status.PASS, "Website entered sucessfully");
 		return this;
 	}
 	
@@ -211,9 +221,11 @@ public class SamplePage extends BaseClass {
 			
 			if(commentCount<250) {
 				System.out.println("Comments entered sucessfully");
+				test.log(Status.PASS, "Comments entered sucessfully");
 			
 			}else {
 				System.out.println("Only 250 characters are allowed");
+				test.log(Status.FAIL, "Only 250 characters are allowed");
 			}
 			return this;
 		}

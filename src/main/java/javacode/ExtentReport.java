@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -25,8 +26,10 @@ public class ExtentReport {
         ExtentSparkReporter spark = new ExtentSparkReporter("./ExtentReport/result.html");
         spark.config().setReportName("My Test Report");
         spark.config().setDocumentTitle("Automation Test Results");
+        spark.config().setTheme(Theme.DARK);
         extent = new ExtentReports();
         extent.attachReporter(spark);
+      
 
         // Create a test case
         test = extent.createTest("MyFirstTest");
