@@ -48,10 +48,7 @@ public class SamplePage extends BaseClass {
 		WebElement elementWebsite = driver.findElement(By.id("g2599-website"));		
 		elementWebsite.sendKeys(website);
 		System.out.println("Selected Website: "+website);
-		System.out.println(" entered sucessfully");
-		System.out.println("Website  sucessfully");
-		System.out.println("Website entered ");
-		System.out.println("  sucessfully");
+
 		return this;
 	}
 	
