@@ -48,6 +48,10 @@ public class SamplePage extends BaseClass {
 		WebElement elementWebsite = driver.findElement(By.id("g2599-website"));		
 		elementWebsite.sendKeys(website);
 		System.out.println("Selected Website: "+website);
+		System.out.println(" entered sucessfully");
+		System.out.println("Website  sucessfully");
+		System.out.println("Website entered ");
+		System.out.println("  sucessfully");
 		return this;
 	}
 	
@@ -68,8 +72,8 @@ public class SamplePage extends BaseClass {
 			WebElement selectedOption=experienceDDL.getFirstSelectedOption();
 			System.out.println("Selected Dropdown: "+selectedOption.getText());
 			
-			// Scroll by 1000 pixels down the page
-	        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500)");		
+//			// Scroll by 1000 pixels down the page
+//	        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500)");		
 			
 		return this;
 	}

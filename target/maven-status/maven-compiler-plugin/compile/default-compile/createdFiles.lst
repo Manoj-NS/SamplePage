@@ -1,6 +1,6 @@
 utilities\ScreenShots.class
-pages\SamplePage.class
 base\BaseClass.class
 utilities\TestListener.class
 utilities\ExtentReportManager.class
 utilities\ReadExcel.class
+pages\SamplePage.class

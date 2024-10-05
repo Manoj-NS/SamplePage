@@ -40,7 +40,7 @@ public class BaseClass {
 			
 		}	  
 	  
-	  @DataProvider //(indices=0)
+	  @DataProvider (indices=1)
 		public String[][] SamplePage() throws IOException {
 			
 			return ReadExcel.getData(excelFileName);
