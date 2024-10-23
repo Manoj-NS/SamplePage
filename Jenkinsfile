@@ -7,12 +7,13 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Build') {
-            steps {
-                // Clean and build the project using Maven
-                sh 'mvn clean install'
-            }
-        }
+    //    stage('Build') {
+    //        steps {
+    //            // Clean and build the project using Maven
+    //            sh 'mvn clean install'
+    //        }
+    //    }
+    
         stage('Test') {
             steps {
                 // Run tests
