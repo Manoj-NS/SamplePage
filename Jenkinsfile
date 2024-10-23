@@ -1,31 +1,25 @@
 pipeline {
     agent any
+    tools {
+        maven 'MyMaven' // Use the name you provided in Global Tool Configuration
+    }
     stages {
         stage('Checkout') {
             steps {
-                // Checkout the code from Git
                 checkout scm
             }
         }
-    //    stage('Build') {
-    //        steps {
-    //            // Clean and build the project using Maven
-    //            sh 'mvn clean install'
-    //        }
-    //    }
-    
-        stage('Test') {
+
+        stage('Build') {
             steps {
-                // Run tests
-                bat 'mvn test'
+                // Clean and build the project using Maven
+                bat 'mvn clean install'
             }
         }
-        
-      //  stage('Deploy') {
-       //     steps {
-                // For example, copying files to a remote server
-       //         sh 'scp target/*.jar user@remote-server:/path/to/deploy/'
-       //     }
-     //   }
+        stage('Test') {
+            steps {
+                bat 'mvn test' // This will now reference the correct Maven installation
+            }
+        }
     }
 }
