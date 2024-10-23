@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-10-05T13:30:32 IST" name="Suite" finished-at="2024-10-05T13:30:48 IST" duration-ms="15677">
+  <suite started-at="2024-10-23T17:04:07 IST" name="Suite" finished-at="2024-10-23T17:04:20 IST" duration-ms="12714">
     <groups>
     </groups>
-    <test started-at="2024-10-05T13:30:32 IST" name="Test" finished-at="2024-10-05T13:30:48 IST" duration-ms="15677">
+    <test started-at="2024-10-23T17:04:07 IST" name="Test" finished-at="2024-10-23T17:04:20 IST" duration-ms="12714">
       <class name="testcase.SamplePageTest">
-        <test-method is-config="true" signature="startReport()[pri:0, instance:testcase.SamplePageTest@38afe297]" started-at="2024-10-05T13:30:32 IST" name="startReport" finished-at="2024-10-05T13:30:32 IST" duration-ms="366" status="PASS">
+        <test-method is-config="true" signature="startReport()[pri:0, instance:testcase.SamplePageTest@2002fc1d]" started-at="2024-10-23T17:04:07 IST" name="startReport" finished-at="2024-10-23T17:04:07 IST" duration-ms="286" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startReport -->
-        <test-method is-config="true" signature="setData()[pri:0, instance:testcase.SamplePageTest@38afe297]" started-at="2024-10-05T13:30:32 IST" name="setData" finished-at="2024-10-05T13:30:32 IST" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="setData()[pri:0, instance:testcase.SamplePageTest@2002fc1d]" started-at="2024-10-23T17:04:07 IST" name="setData" finished-at="2024-10-23T17:04:07 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setData -->
-        <test-method is-config="true" signature="BeforeMethod(java.lang.String,java.lang.String)[pri:0, instance:testcase.SamplePageTest@38afe297]" started-at="2024-10-05T13:30:34 IST" name="BeforeMethod" finished-at="2024-10-05T13:30:44 IST" duration-ms="9869" status="PASS">
+        <test-method is-config="true" signature="BeforeMethod(java.lang.String,java.lang.String)[pri:0, instance:testcase.SamplePageTest@2002fc1d]" started-at="2024-10-23T17:04:09 IST" name="BeforeMethod" finished-at="2024-10-23T17:04:18 IST" duration-ms="8729" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -31,7 +31,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeMethod -->
-        <test-method signature="samplePage(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:testcase.SamplePageTest@38afe297]" started-at="2024-10-05T13:30:44 IST" name="samplePage" data-provider="SamplePage" finished-at="2024-10-05T13:30:47 IST" duration-ms="2998" status="PASS">
+        <test-method signature="samplePage(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:testcase.SamplePageTest@2002fc1d]" started-at="2024-10-23T17:04:18 IST" name="samplePage" data-provider="SamplePage" finished-at="2024-10-23T17:04:19 IST" duration-ms="1894" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -92,15 +92,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- samplePage -->
-        <test-method is-config="true" signature="AfterMethod()[pri:0, instance:testcase.SamplePageTest@38afe297]" started-at="2024-10-05T13:30:47 IST" name="AfterMethod" finished-at="2024-10-05T13:30:48 IST" duration-ms="264" status="PASS">
+        <test-method is-config="true" signature="AfterMethod()[pri:0, instance:testcase.SamplePageTest@2002fc1d]" started-at="2024-10-23T17:04:19 IST" name="AfterMethod" finished-at="2024-10-23T17:04:20 IST" duration-ms="213" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AfterMethod -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testcase.SamplePageTest@38afe297]" started-at="2024-10-05T13:30:48 IST" name="tearDown" finished-at="2024-10-05T13:30:48 IST" duration-ms="113" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testcase.SamplePageTest@2002fc1d]" started-at="2024-10-23T17:04:20 IST" name="tearDown" finished-at="2024-10-23T17:04:20 IST" duration-ms="171" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="teardownReport()[pri:0, instance:testcase.SamplePageTest@38afe297]" started-at="2024-10-05T13:30:48 IST" name="teardownReport" finished-at="2024-10-05T13:30:48 IST" duration-ms="18" status="PASS">
+        <test-method is-config="true" signature="teardownReport()[pri:0, instance:testcase.SamplePageTest@2002fc1d]" started-at="2024-10-23T17:04:21 IST" name="teardownReport" finished-at="2024-10-23T17:04:21 IST" duration-ms="27" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardownReport -->

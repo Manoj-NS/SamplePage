@@ -19,7 +19,7 @@ public class SamplePageTest extends BaseClass {
 	@Test(dataProvider="SamplePage")
 	public void samplePage(String name, String email, String website, String experience, String checkboxCount, 
 			String checkboxOption, String expertise, String educationCount, String educationOptions, 
-			String education, String comments) {
+			String education, String comments) throws InterruptedException {
 		
 		test.log(Status.INFO, "Starting test case");
 		

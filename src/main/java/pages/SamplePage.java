@@ -20,8 +20,8 @@ import base.BaseClass;
 
 public class SamplePage extends BaseClass {
 	
-	public SamplePage(RemoteWebDriver commonDriver) {
-			this.driver=commonDriver;
+	public SamplePage(RemoteWebDriver driver) {
+			this.driver=driver;
 		}
 	
 	
@@ -70,7 +70,7 @@ public class SamplePage extends BaseClass {
 			System.out.println("Selected Dropdown: "+selectedOption.getText());
 			
 //			// Scroll by 1000 pixels down the page
-//	        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500)");		
+	        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500)");		
 			
 		return this;
 	}
@@ -110,7 +110,7 @@ public class SamplePage extends BaseClass {
 			return this;
 				}
 			
-	public SamplePage selectExpertise(String expertise) {
+	public SamplePage selectExpertise(String expertise) throws InterruptedException {
 
 		List<WebElement> checkboxOptions=driver.findElements(By.xpath("//input[@type='checkbox']"));
 		
@@ -129,6 +129,7 @@ public class SamplePage extends BaseClass {
 				System.out.println("Selected Checkbox: "+optionSelected);}	
 			}
 		}
+//			Thread.sleep(5000);
 	return this;
 	}
 
@@ -165,7 +166,7 @@ public class SamplePage extends BaseClass {
 	
 		}
 		
-		public SamplePage selectEducation(String education) {
+		public SamplePage selectEducation(String education) throws InterruptedException {
 			
 			List<WebElement> radioOptions = driver.findElements(By.xpath("//input[@type='radio']"));
 			for(WebElement eduOptions: radioOptions){
@@ -181,8 +182,10 @@ public class SamplePage extends BaseClass {
 			
 				System.out.println("Selected radioButton: "+radiobuttonOptions);	}
 				
-				}	
+				}
+//				Thread.sleep(5000);
 			}	
+			
 		return this;
 		}
 		
